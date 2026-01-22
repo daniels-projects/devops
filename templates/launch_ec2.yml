@@ -1,0 +1,15 @@
+DemoEC2:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: "t3.micro"
+      ImageId: ami-00a8151272c45cd8e
+      Tags:
+        - Key: Name
+          Value: Helloworld
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -xe
+          yum install wget git -y
+          amazon-linux-extras install docker
+          service docker start
+          usermod -a -G docker ec2-user
