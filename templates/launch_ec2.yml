@@ -1,4 +1,8 @@
-DemoEC2:
+AWSTemplateFormatVersion: 2010-09-09
+Description: CloudFormation Template for WebServer with Security Group and EC2 Instance
+
+Resources:
+  DemoEC2:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: "t3.micro"
