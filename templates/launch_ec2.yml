@@ -1,26 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: CloudFormation Template for WebServer with Security Group and EC2 Instance
-
-Resources:
-  DemoEC2:
-    Type: AWS::EC2::Instance
-    Properties:
-      InstanceType: "t2.micro"
-      ImageId: ami-00a8151272c45cd8e
-      Tags:
-        - Key: Name
-          Value: Helloworld
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash -xe
-          yum install wget git -y
-          yum install docker -y
-          service docker start
-          usermod -a -G docker ec2-user
-          reboot
-
-CFN/YAML
-
+Description: CloudFormation Template for EC2 with Security Group 
 ---
 # Step 1: Create a Security Group
 Resources:
@@ -45,16 +24,19 @@ Resources:
   DemoInstance:
     Type: AWS::EC2::Instance
     Properties:
+      InstanceType: "t2.micro"
       ImageId: ami-00a8151272c45cd8e
-      InstanceType: t2.micro
-      KeyName: ec2-user
-      UserData: 
+      Tags:
+        - Key: Name
+          Value: Helloworld
+      UserData:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
           yum install wget git -y
-          amazon-linux-extras install docker
+          yum install docker -y
           service docker start
           usermod -a -G docker ec2-user
+          reboot
       NetworkInterfaces:
         - AssociatePublicIpAddress: true
           DeviceIndex: 0
