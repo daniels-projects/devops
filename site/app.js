@@ -22,7 +22,7 @@ async function sendMessage() {
   // reply = "🤖 Fake agent responding correctly";
 
   try {
-    const response = await fetch("https://un8vgy9w46.execute-api.us-west-2.amazonaws.com/default/devopsaiagent-lambda",
+    const response = await fetch("/api/agent",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
