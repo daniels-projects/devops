@@ -16,18 +16,30 @@ async function sendMessage() {
 
   // 🔗 AI AGENT ENDPOINT (replace later)
   let reply = "⚠️ Agent not connected yet.";
+  
+  // FORCE UI TEST
+  // await new Promise(resolve => setTimeout(resolve, 800));
+  // reply = "🤖 Fake agent responding correctly";
 
   try {
-    const response = await fetch("/api/agent", {
+    const response = await fetch("https://un8vgy9w46.execute-api.us-west-2.amazonaws.com/default/devopsaiagent-lambda",
+    {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: text })
     });
+    
+    if (!response.ok) throw new Error("Bad response");
+    const data = await response.json();
+    // print("response:", response)
+    // if (response.ok) {
+    //   const data = await response.json();
+    //   reply = data.reply || reply;
+    // }
+    // ✅ THIS PROVES IT WORKS
+    print(`Fetched title: ${data}`)
+    reply = `Fetched title: ${data}`;
 
-    if (response.ok) {
-      const data = await response.json();
-      reply = data.reply || reply;
-    }
   } catch (err) {
     console.warn("Agent unavailable", err);
   }
