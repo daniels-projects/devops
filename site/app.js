@@ -31,14 +31,14 @@ async function sendMessage() {
     
     if (!response.ok) throw new Error("Bad response");
     const data = await response.json();
-    // print("response:", response)
-    // if (response.ok) {
-    //   const data = await response.json();
-    //   reply = data.reply || reply;
-    // }
+    print("response:", response)
+    if (response.ok) {
+      const data = await response.json();
+      reply = data.reply || reply;
+    }
     // ✅ THIS PROVES IT WORKS
-    print(`Fetched title: ${data}`)
-    reply = `Fetched title: ${data}`;
+    // print(`Fetched title: ${data}`)
+    // reply = `Fetched title: ${data}`;
 
   } catch (err) {
     console.warn("Agent unavailable", err);
