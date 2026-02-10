@@ -15,7 +15,6 @@ agent = Agent(
     tools=[http_request]
     )
 
-
 @app.entrypoint
 def invoke(payload):
     """Your AI agent function"""

@@ -26,7 +26,7 @@ async function sendMessage() {
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text })
+      body: JSON.stringify({ "message": text })
     });
     
     if (!response.ok) throw new Error("Bad response");
