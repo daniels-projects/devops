@@ -5,7 +5,7 @@ FROM public.ecr.aws/nginx/nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy your website files into the container
-COPY site/ /usr/share/nginx/html/
+COPY frontend/site/ /usr/share/nginx/html/
 
 # Expose port 80
 EXPOSE 80
