@@ -30,6 +30,6 @@ phases:
       - docker push $FE_REPOSITORY_URI:$IMAGE_TAG      
       - echo Writing image definitions file...
       # - printf '[{"name":"%s","imageUri":"%s"}]' "$IMAGE_REPO_NAME" "$AI_REPOSITORY_URI:$IMAGE_TAG" > imagedefinitions.json
-      - printf '[{"name":"%s","imageUri":"%s"}]' "$FE_REPOSITORY_URI" "$FE_REPOSITORY_URI:$IMAGE_TAG" > imagedefinitions.json
+      - printf '[{"name":"%s","imageUri":"%s"}]' "$FE_IMAGE_REPO_NAME" "$FE_REPOSITORY_URI:$IMAGE_TAG" > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json

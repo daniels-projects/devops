@@ -6,4 +6,4 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy Lambda handler and AIService
-COPY ai_service.py ./
+COPY agentcore/ai_service.py ./
