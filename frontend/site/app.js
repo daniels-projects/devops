@@ -28,6 +28,7 @@ async function sendMessage() {
       })
     });
     console.log("Response:", response);
+    console.log("Response.ok:", response.ok);
 
     const data = await response.json();
     console.log("Data:", data);
