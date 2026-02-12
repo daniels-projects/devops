@@ -27,8 +27,11 @@ async function sendMessage() {
         strand: strand
       })
     });
+    console.log("Response:", response);
 
     const data = await response.json();
+    console.log("Data:", data);
+    
     if (response.ok) {
       reply = data.body || reply;
     } else {
