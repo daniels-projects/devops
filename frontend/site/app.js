@@ -24,14 +24,13 @@ async function sendMessage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         prompt: text,
-        mode: "default",
         strand: strand
       })
     });
 
     const data = await response.json();
     if (response.ok) {
-      reply = data.reply ?? data.result ?? reply;
+      reply = data.body || reply;
     } else {
       reply = data.error || reply;
     }

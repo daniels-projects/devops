@@ -35,3 +35,6 @@ The deployed agent can:
 ├── buildspec.yml                  # Codebuild 
 └── README.md                      # 
 ```
+
+helpful articles
+https://aws.github.io/bedrock-agentcore-starter-toolkit/user-guide/runtime/quickstart.html#step-1-setup-project-and-install-dependencies
