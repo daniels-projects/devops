@@ -1,0 +1,15 @@
+{
+  "body": "{\"prompt\": \"What are current mortgage interest rates?\", \"strand\": \"realtor\"}",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "httpMethod": "POST",
+  "path": "/api/agent",
+  "pathParameters": null,
+  "queryStringParameters": null,
+  "requestContext": {
+    "requestId": "test-request-id",
+    "stage": "test"
+  },
+  "isBase64Encoded": false
+}
