@@ -34,10 +34,8 @@ async function sendMessage() {
     console.log("Data:", data);
     
     if (response.ok) {
-      reply = data.body || reply;
-    } else {
-      reply = data.error || reply;
-    }
+      reply = data;
+    } 
   } catch (err) {
     console.warn("Agent unavailable", err);
   }
