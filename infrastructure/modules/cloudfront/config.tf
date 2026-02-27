@@ -11,13 +11,15 @@ resource "aws_cloudfront_origin_access_control" "frontend_oac" {
  resource "aws_cloudfront_distribution" "frontend_distro" {
     # enabled (Required) - Whether the distribution is enabled to accept end user requests for content.
    enabled = true
-   default_root_object = "frontend/site/index.html"
+   default_root_object = "index.html"
 
    # Create CloudFront distribution pointing to your S3 bucket
    origin {
     domain_name                 = var.s3_frontend_bucket_resource.bucket_regional_domain_name
     origin_access_control_id    = aws_cloudfront_origin_access_control.frontend_oac.id
     origin_id                   = var.s3_frontend_bucket_resource.id
+      origin_path = "/frontend/site"   # 🔥 THIS is the fix
+
    }
 
     #  At least 1 "default_cache_behavior" blocks are required.

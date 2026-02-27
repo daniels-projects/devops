@@ -34,16 +34,16 @@ resource "aws_s3_bucket_versioning" "versioning_example" {
   }
 }
 
-resource "aws_s3_bucket_cors_configuration" "frontend_cors" {
-  bucket = aws_s3_bucket.frontend.id
-
-  cors_rule {
-    allowed_headers = ["*"]
-    allowed_methods = ["GET", "POST"]
-    allowed_origins = ["*"]
-  }
-
-}
+# resource "aws_s3_bucket_cors_configuration" "frontend_cors" {
+#   bucket = aws_s3_bucket.frontend.id
+# 
+#   cors_rule {
+#     allowed_headers = ["*"]
+#     allowed_methods = ["GET", "POST"]
+#     allowed_origins = ["*"]
+#   }
+# 
+# }
 
 # resource "aws_s3_bucket_website_configuration" "fontend_website_conf" {
 #   bucket = aws_s3_bucket.frontend.id
