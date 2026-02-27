@@ -1,5 +1,5 @@
 module "frontend" {
-  source = "./modules/storage_and_state/frontend"
+  source = "./modules/storage/frontend"
 
   # Pass from root variable
   environment = var.environment
