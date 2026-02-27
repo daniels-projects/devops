@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Agent</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="chat-container">
+  <div class="header">AI Agent-  Automation</div>
+
+  <div class="messages" id="messages">
+    <div class="message agent">Hello 👋 Im ready when you are.</div>
+  </div>
+
+  <div class="input-area" id="ask-ai">
+    <label for="strand" class="strand-label">Expert</label>
+    <select id="strand" name="strand" aria-label="Choose expert strand">
+      <option value="realtor">Realtor — interest rates & housing</option>
+      <option value="finance">Finance — money management & planning</option>
+      <option value="health">Health — trainer, NASM, mobility & strength</option>
+      <option value="mentor">Mentor — confidence, goal-oriented & evidence-based</option>
+    </select>
+    <input id="input" placeholder="Ask something..." />
+    <button id="sendBtn" type="button">Send</button>
+  </div>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
