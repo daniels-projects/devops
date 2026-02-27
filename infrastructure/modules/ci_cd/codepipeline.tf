@@ -27,6 +27,7 @@ resource "aws_codepipeline" "frontend_pipeline" {
         ConnectionArn    = var.codestar_github_connection_arn
         FullRepositoryId = "${var.github_owner}/${var.github_repo}"
         BranchName       = "main"
+        DetectChanges    = "true"
       }
     }
   }
@@ -49,21 +50,3 @@ resource "aws_codepipeline" "frontend_pipeline" {
   }
 }
 
-# TODO:
-# -------------------------------
-# Optional: Webhook to auto-trigger pipeline
-# -------------------------------
-# resource "aws_codepipeline_webhook" "github_webhook" {
-#   name            = "frontend-pipeline-webhook"
-#   target_action   = "GitHub_Source"
-#   target_pipeline = aws_codepipeline.frontend_pipeline.name
-#   authentication  = "GITHUB_HMAC"
-#   authentication_configuration {
-#     secret_token = var.github_webhook_secret
-#   }
-# 
-#   filter {
-#     json_path    = "$.ref"
-#     match_equals = "refs/heads/${var.github_branch}"
-#   }
-# }

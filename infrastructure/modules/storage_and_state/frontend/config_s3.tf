@@ -55,5 +55,4 @@ resource "aws_s3_bucket_cors_configuration" "frontend_cors" {
 #   error_document {
 #     key = "error.html"
 #   }
-
-}
+# }

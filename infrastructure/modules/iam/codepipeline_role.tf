@@ -58,7 +58,7 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
         Resource = [
           "arn:aws:s3:::${var.s3_frontend_bucket_resource.id}/",       # bucket itself
           "arn:aws:s3:::${var.s3_frontend_bucket_resource.id}/*",       # bucket objects
-          "arn:aws:s3:::${var.pipeline_artifacts_bucket.id}/"      # objects
+          "arn:aws:s3:::${var.pipeline_artifacts_bucket.id}/",      # objects
           "arn:aws:s3:::${var.pipeline_artifacts_bucket.id}/*"      # objects
         ]
       }
