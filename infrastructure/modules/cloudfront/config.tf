@@ -13,14 +13,29 @@ resource "aws_cloudfront_origin_access_control" "frontend_oac" {
    enabled = true
    default_root_object = "index.html"
 
-   # Create CloudFront distribution pointing to your S3 bucket
-   origin {
+  # Create CloudFront distribution pointing to origins
+  # S3 FRONTEND ORIGIN
+  origin {
     domain_name                 = var.s3_frontend_bucket_resource.bucket_regional_domain_name
     origin_access_control_id    = aws_cloudfront_origin_access_control.frontend_oac.id
     origin_id                   = var.s3_frontend_bucket_resource.id
       origin_path = "/frontend/site"   # 🔥 THIS is the fix
 
-   }
+  }
+
+  # API GATEWAY ORIGIN
+  origin {
+    domain_name = un8vgy9w46.execute-api.us-west-2.amazonaws.com
+    origin_id   = "api-origin"
+    origin_path = "/default"
+
+    custom_origin_config {
+      http_port              = 80
+      https_port             = 443
+      origin_protocol_policy = "https-only"
+      origin_ssl_protocols   = ["TLSv1.2"]
+    }
+  }
 
     #  At least 1 "default_cache_behavior" blocks are required.
     # AWS Managed Caching Policy (Managed-CachingOptimized)
@@ -62,8 +77,7 @@ data "aws_iam_policy_document" "s3_origin_iam_policy" {
     }
 
     actions = [
-      "s3:GetObject",
-      "s3:PutObject",
+      "s3:GetObject"
     ]
 
     resources = [
